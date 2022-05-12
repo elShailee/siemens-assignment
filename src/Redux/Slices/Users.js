@@ -6,7 +6,9 @@ const UsersSlice = createSlice({
 	initialState: texts.usersFetchMessage,
 	reducers: {
 		updateUsersList: (state, action) => {
-			return action?.payload ? action.payload : { ...state };
+			if (action?.payload) {
+				return action.payload;
+			}
 		},
 	},
 });

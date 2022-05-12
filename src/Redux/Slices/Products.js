@@ -4,7 +4,9 @@ const ProductsSlice = createSlice({
 	initialState: null,
 	reducers: {
 		updateProductsList: (state, action) => {
-			return action?.payload ? action.payload : { ...state };
+			if (action?.payload) {
+				return action.payload;
+			}
 		},
 	},
 });

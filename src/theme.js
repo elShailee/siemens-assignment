@@ -16,6 +16,9 @@ export const theme = {
 			XL: '3rem',
 		},
 	},
+	shadows: {
+		L: '0px 7px 8px -4px rgb(0, 0, 0, 0.25), 0px 12px 17px 2px rgb(0, 0, 0, 0.2),	0px 5px 22px 4px rgb(0, 0, 0, 0.16)',
+	},
 	fonts: {
 		primary: "'Noto Serif', serif",
 	},

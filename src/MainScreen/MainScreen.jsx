@@ -32,7 +32,7 @@ export const MainScreen = () => {
 				<UsersTable loadUserCart={loadUserCart} />
 				<CartsTable carts={cartsState} />
 			</TablesContainer>
-			{typeof cartsState !== 'string' && (
+			{Array.isArray(cartsState) && cartsState.length > 0 && (
 				<>
 					<SummaryButton onClick={openModal}>{texts.summary}</SummaryButton>
 					<SummaryModal isOpen={modalOpenState} closeModal={closeModal} carts={cartsState} />

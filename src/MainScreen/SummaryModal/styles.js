@@ -13,6 +13,7 @@ export const ModalContentContainer = styled.div`
 	border-radius: ${({ theme }) => theme.sizes.borderRadius.XL};
 	color: ${({ theme }) => theme.colors.MainScreen.text};
 	font-size: ${({ theme }) => theme.sizes.text.S};
+	box-shadow: ${({ theme }) => theme.shadows.L};
 `;
 
 export const SummaryLabel = styled.div`

@@ -1,5 +1,13 @@
+import { MainScreen } from 'MainScreen/MainScreen';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'theme';
+
 function App() {
-	return <>Clean ReactJS App</>;
+	return (
+		<ThemeProvider theme={theme}>
+			<MainScreen />
+		</ThemeProvider>
+	);
 }
 
 export default App;

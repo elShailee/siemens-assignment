@@ -82,15 +82,11 @@ export const theme = {
 		// clickable: `
 		// 	cursor: pointer;
 		// `,
-		screenSized: `
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100vw;
-			height: 100vh;
-			box-sizing: border-box;
-			overflow:hidden;
-		`,
+		// screenSized: `
+		// 	// position: absolute;
+		// 	// left: 0;
+		// 	// top: 0;
+		// `,
 		// hideScrollbar: `
 		// 	::-webkit-scrollbar {
 		// 	display: none;

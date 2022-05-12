@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import texts from 'texts';
 
 export const StyledMainScreen = styled.div`
-	${({ theme }) => theme.customStyles.screenSized}
+	width: 100%;
+	min-height: 100vh;
+	box-sizing: border-box;
 	background-color: ${({ theme }) => theme.colors.MainScreen.BG};
 	color: ${({ theme }) => theme.colors.MainScreen.text};
 	font-family: ${({ theme }) => theme.fonts.primary};
@@ -24,12 +26,8 @@ AppLogo.defaultProps = {
 export const TablesContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-`;
-
-export const UsersTableContainer = styled.div`
-	width: 40vw;
-	height: 30vh;
-	background-color: teal;
+	padding: ${({ theme }) => theme.sizes.padding.L};
+	justify-content: space-around;
 `;
 
 export const SummaryButton = styled.button`

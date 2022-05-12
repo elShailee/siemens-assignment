@@ -3,7 +3,7 @@ import texts from 'texts';
 
 const UsersSlice = createSlice({
 	name: 'Users',
-	initialState: texts.dataFetchMessage,
+	initialState: texts.usersFetchMessage,
 	reducers: {
 		updateUsersList: (state, action) => {
 			return action?.payload ? action.payload : { ...state };

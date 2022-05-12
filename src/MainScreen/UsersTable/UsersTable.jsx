@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 import { usersSelector } from 'Redux/Selectors/UsersSelectors';
 import texts from 'texts';
 import { formatUserFullName, formatUserAddress } from 'Utils/formatUtils';
-import { StyledTableContainer } from './styles';
+import { StyledTableContainer, UserEntry } from './styles';
 
 export const UsersTable = ({ loadUserCart }) => {
 	const usersData = useSelector(usersSelector);
@@ -39,13 +39,13 @@ export const UsersTable = ({ loadUserCart }) => {
 							</TableRow>
 						) : (
 							usersData.map(user => (
-								<TableRow key={user.id} onClick={() => loadUserCart(user.id)}>
+								<UserEntry key={user.id} onClick={() => loadUserCart(user.id)}>
 									<TableCell aling='left'>{user.id}</TableCell>
 									<TableCell>{user.username}</TableCell>
 									<TableCell>{user.email}</TableCell>
 									<TableCell>{formatUserFullName(user.name)}</TableCell>
 									<TableCell>{formatUserAddress(user.address)}</TableCell>
-								</TableRow>
+								</UserEntry>
 							))
 						)}
 					</TableBody>

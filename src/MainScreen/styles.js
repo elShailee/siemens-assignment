@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import styled from 'styled-components';
 import texts from 'texts';
 
@@ -26,14 +27,17 @@ AppLogo.defaultProps = {
 export const TablesContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
+	margin: ${({ theme }) => theme.sizes.padding.XXL} 0;
 	padding: ${({ theme }) => theme.sizes.padding.L};
 	justify-content: space-around;
 `;
 
-export const SummaryButton = styled.button`
+export const SummaryButton = styled(Button)`
 	background-color: gray;
 	width: fit-content;
-	margin: ${({ theme }) => theme.sizes.padding.L};
-	align-self: end;
+	align-self: center;
 	color: inherit;
 `;
+SummaryButton.defaultProps = {
+	variant: 'contained',
+};

@@ -2,7 +2,7 @@ import { updateProductsList } from 'Redux/Slices/Products';
 import { updateUsersList } from 'Redux/Slices/Users';
 import texts from 'texts';
 
-export const fetchUsersData = ({ dispatch, setCartState }) => {
+export const fetchUsersData = ({ dispatch, setcartsState }) => {
 	if (!dispatch) {
 		console.error("please pass dispatch object to 'fetchUsersData'.");
 		return;
@@ -11,14 +11,14 @@ export const fetchUsersData = ({ dispatch, setCartState }) => {
 		.then(res => res.json())
 		.then(res => {
 			dispatch(updateUsersList(res));
-			setCartState(texts.cartsFetchMessage);
+			setcartsState(texts.cartsFetchMessage);
 			if (res?.length) {
-				fetchCartData({ userId: res[0].id, setCartState });
+				fetchCartData({ userId: res[0].id, setcartsState });
 			}
 		});
 };
 
-export const fetchCartData = ({ userId, setCartState }) => {
+export const fetchCartData = ({ userId, setcartsState }) => {
 	if (typeof userId !== 'number') {
 		console.error("invalid userId in 'fetchCartData'.");
 		return;
@@ -26,7 +26,7 @@ export const fetchCartData = ({ userId, setCartState }) => {
 	fetch('https://fakestoreapi.com/carts/user/' + userId)
 		.then(res => res.json())
 		.then(res => {
-			setCartState(res);
+			setcartsState(res);
 		});
 };
 

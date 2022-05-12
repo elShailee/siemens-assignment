@@ -4,20 +4,25 @@ import texts from 'texts';
 import { fetchUsersData, fetchProductsData, fetchCartData } from 'Utils/networkUtils';
 import { CartsTable } from './CartsTable/CartsTable';
 import { AppLogo, StyledMainScreen, SummaryButton, TablesContainer } from './styles';
+import { SummaryModal } from './SummaryModal/SummaryModal';
 import { UsersTable } from './UsersTable/UsersTable';
 
 export const MainScreen = () => {
-	const [cartState, setCartState] = useState(texts.usersFetchMessage);
+	const [cartsState, setCartsState] = useState(texts.usersFetchMessage);
+	const [modalOpenState, setModalOpenState] = useState(false);
+
+	const openModal = () => setModalOpenState(true);
+	const closeModal = () => setModalOpenState(false);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
-		fetchUsersData({ dispatch, setCartState });
+		fetchUsersData({ dispatch, setcartsState: setCartsState });
 		fetchProductsData({ dispatch });
 	}, [dispatch]);
 
 	const loadUserCart = id => {
-		setCartState(texts.cartsFetchMessage);
-		fetchCartData({ userId: id, setCartState });
+		setCartsState(texts.cartsFetchMessage);
+		fetchCartData({ userId: id, setcartsState: setCartsState });
 	};
 
 	return (
@@ -25,9 +30,14 @@ export const MainScreen = () => {
 			<AppLogo href='' />
 			<TablesContainer>
 				<UsersTable loadUserCart={loadUserCart} />
-				<CartsTable cart={cartState} />
+				<CartsTable cart={cartsState} />
 			</TablesContainer>
-			<SummaryButton>{texts.summary}</SummaryButton>
+			{typeof cartsState !== 'string' && (
+				<>
+					<SummaryButton onClick={openModal}>{texts.summary}</SummaryButton>
+					<SummaryModal isOpen={modalOpenState} closeModal={closeModal} carts={cartsState} />
+				</>
+			)}
 		</StyledMainScreen>
 	);
 };

@@ -19,10 +19,16 @@ const texts = {
 			totalPrice: 'Total Price',
 		},
 	},
-	summary: 'Summary',
+	summary: 'User Summary',
 	usersFetchMessage: 'Fetching users data...',
 	cartsFetchMessage: 'Fetching carts data...',
 	emptyUser: 'This user has no cart history.',
+	modalLabels: {
+		mostExpensive: 'Most expensive shopping cart price',
+		lastPurchaseDate: 'Last purchase date',
+		totalSpent: 'Total money spent by user',
+		expensiveProductImage: 'Most expensive product bought by user (picture)',
+	},
 };
 
 export default texts;

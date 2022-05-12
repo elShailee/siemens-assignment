@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import texts from 'texts';
 import { fetchUsersData, fetchProductsData, fetchCartData } from 'Utils/networkUtils';
@@ -15,14 +15,14 @@ export const MainScreen = () => {
 	const closeModal = () => setModalOpenState(false);
 
 	const dispatch = useDispatch();
-	useEffect(() => {
-		fetchUsersData({ dispatch, setcartsState: setCartsState });
+	useMemo(() => {
+		fetchUsersData({ dispatch, setCartsState });
 		fetchProductsData({ dispatch });
 	}, [dispatch]);
 
 	const loadUserCart = id => {
 		setCartsState(texts.cartsFetchMessage);
-		fetchCartData({ userId: id, setcartsState: setCartsState });
+		fetchCartData({ userId: id, setCartsState });
 	};
 
 	return (
@@ -30,7 +30,7 @@ export const MainScreen = () => {
 			<AppLogo href='' />
 			<TablesContainer>
 				<UsersTable loadUserCart={loadUserCart} />
-				<CartsTable cart={cartsState} />
+				<CartsTable carts={cartsState} />
 			</TablesContainer>
 			{typeof cartsState !== 'string' && (
 				<>

@@ -38,15 +38,18 @@ export const UsersTable = ({ loadUserCart }) => {
 								<TableCell>{usersData}</TableCell>
 							</TableRow>
 						) : (
-							usersData.map(user => (
-								<UserEntry key={user.id} onClick={() => loadUserCart(user.id)}>
-									<TableCell aling='left'>{user.id}</TableCell>
-									<TableCell>{user.username}</TableCell>
-									<TableCell>{user.email}</TableCell>
-									<TableCell>{formatUserFullName(user.name)}</TableCell>
-									<TableCell>{formatUserAddress(user.address)}</TableCell>
-								</UserEntry>
-							))
+							usersData.map(user => {
+								const { id, username, email, name, address } = user;
+								return (
+									<UserEntry key={id} onClick={() => loadUserCart(id)}>
+										<TableCell>{id}</TableCell>
+										<TableCell>{username}</TableCell>
+										<TableCell>{email}</TableCell>
+										<TableCell>{formatUserFullName(name)}</TableCell>
+										<TableCell>{formatUserAddress(address)}</TableCell>
+									</UserEntry>
+								);
+							})
 						)}
 					</TableBody>
 				</Table>

@@ -9,6 +9,7 @@ const texts = {
 		fields: ['ID', 'Date', 'Items amount', 'Total price'],
 	},
 	summary: 'Summary',
+	dataFetchMessage: 'Fetching data...',
 };
 
 export default texts;

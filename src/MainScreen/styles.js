@@ -26,6 +26,12 @@ export const TablesContainer = styled.div`
 	flex-wrap: wrap;
 `;
 
+export const UsersTableContainer = styled.div`
+	width: 40vw;
+	height: 30vh;
+	background-color: teal;
+`;
+
 export const SummaryButton = styled.button`
 	background-color: gray;
 	width: fit-content;
